@@ -18,10 +18,15 @@ class Pessoa:
         return f'{cls} - olhos {cls.olhos}'
 
 class Homem(Pessoa):
-    pass
+    def cumprimentar(self):
+        cumprimentar_da_classe = super().cumprimentar()
+        return f'{cumprimentar_da_classe}.Aperto de mao'
+
+class Mutante(Pessoa):
+    olhos = 3
 
 if __name__ == '__main__':
-    luciano = Homem(nome='Luciano')
+    luciano = Mutante(nome='Luciano')
     roberto = Pessoa(nome='Roberto')
     print(Pessoa.cumprimentar(roberto))
     print(id(roberto))
@@ -40,3 +45,6 @@ if __name__ == '__main__':
     pessoa = Pessoa('Anonimo')
     print(isinstance(pessoa, Pessoa))
     print(isinstance(pessoa, Homem))
+    print(luciano.olhos)
+    print(luciano.cumprimentar())
+    print(roberto.cumprimentar())
