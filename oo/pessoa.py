@@ -7,7 +7,7 @@ class Pessoa:
         self.filhos = list(filhos)
 
     def cumprimentar(self):
-        return f'Olá {id(self)}'
+        return f'Olá, meu nome é {self.nome}'
 
     @staticmethod
     def metodo_estatico():
@@ -27,7 +27,7 @@ class Mutante(Pessoa):
 
 if __name__ == '__main__':
     luciano = Mutante(nome='Luciano')
-    roberto = Pessoa(nome='Roberto')
+    roberto = Homem(nome='Roberto')
     print(Pessoa.cumprimentar(roberto))
     print(id(roberto))
     print(roberto.cumprimentar())
