@@ -77,7 +77,7 @@ class Fase():
             return VITORIA
         elif self._possui_passaros_ativos():
             return EM_ANDAMENTO
-        elif:
+        else:
             return DERROTA
 
     def lancar(self, angulo, tempo):
