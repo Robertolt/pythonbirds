@@ -36,7 +36,7 @@ class Ator():
         :param tempo: o tempo do jogo
         :return: posição x, y do ator
         """
-        return 1, 1
+        return self.x , self.y
 
     def colidir(self, outro_ator, intervalo=1):
         """
@@ -66,6 +66,7 @@ class Obstaculo(Ator):
 
 class Porco(Ator):
     _caracter_ativo = '@'
+    _caracter_destruido = "+"
 
 
 class DuploLancamentoExcecao(Exception):
@@ -94,7 +95,8 @@ class Passaro(Ator):
         Método que retorna verdaeira se o pássaro já foi lançado e falso caso contrário
         :return: booleano
         """
-        return True
+        return not self._tempo_de_lancamento is None
+
 
     def colidir_com_chao(self):
         """
@@ -124,12 +126,17 @@ class Passaro(Ator):
         :param tempo_de_lancamento:
         :return:
         """
-        pass
+        self._angulo_de_lancamento = angulo
+        self._tempo_de_lancamento = tempo_de_lancamento
 
 
 class PassaroAmarelo(Passaro):
-    pass
+    _caracter_ativo = 'A'
+    _caracter_destruido = 'a'
+    velocidade_escalar = 30
 
 
 class PassaroVermelho(Passaro):
     _caracter_ativo = "V"
+    _caracter_destruido = 'v'
+    velocidade_escalar = 20
